@@ -2,6 +2,8 @@
 
 // adonis make:validator User
 
+const Antl = use('Antl')
+
 class User {
   // Para validar todos os campos ao invés de parar no primeiro errado
   get validateAll () {
@@ -14,6 +16,10 @@ class User {
       email: 'required|email|unique:users',
       password: 'required|confirmed'
     }
+  }
+
+  get messages () {
+    return Antl.list('validation')
   }
 }
 
