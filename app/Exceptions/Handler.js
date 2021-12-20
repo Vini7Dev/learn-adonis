@@ -2,6 +2,9 @@
 
 // adonis make:ehandler
 
+const Raven = require('raven')
+
+const Config = use('Config')
 const Env = use('Env')
 const Youch = use('Youch')
 
@@ -23,8 +26,9 @@ class ExceptionHandler extends BaseExceptionHandler {
     return response.status(error.status)
   }
 
-  async report (error, { request }) {
-    console.log(error)
+  async report (error) {
+    Raven.config(Config.get('services.sentry.dsn'))
+    Raven.captureException(error)
   }
 }
 
