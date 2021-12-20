@@ -1,0 +1,9 @@
+<strong>Olá, {{ username }}. Tudo bem?</strong>
+
+<p>
+  Uma tarefa foi assinada à você: {{ title }}
+</p>
+
+@if(hasAttachment)
+  <p>Em anexo você encontra detalhes da tarefa.</p>
+@endif
