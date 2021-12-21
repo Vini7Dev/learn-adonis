@@ -3,7 +3,10 @@
 // INFO: Rodar no terminal "adonis route:list"
 const Route = use('Route')
 
-Route.post('users', 'UserController.store').validator('User')
+// Old: Route.post('users', 'UserController.store').validator('User')
+
+Route.resource('users', 'UserController')
+
 Route.post('sessions', 'SessionController.store').validator('Session')
 
 Route.post('passwords', 'ForgotPasswordController.store').validator('ForgotPassword')
