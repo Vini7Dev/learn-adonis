@@ -26,11 +26,11 @@ class UserController {
     }
 
     if (roles) {
-      await user.roles().attach(roles)
+      await user.roles().attach(roles, trx)
     }
 
     if (permissions) {
-      await user.permissions().attach(permissions)
+      await user.permissions().attach(permissions, trx)
     }
 
     await user.loadMany(['roles', 'permissions'])
