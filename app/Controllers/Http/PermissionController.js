@@ -57,10 +57,16 @@ class PermissionController {
     }
   }
 
-  async destroy ({ params }) {
-    const permission = await Permission.findOrFail(params.id)
+  async destroy ({ params, response }) {
+    try {
+      const permission = await Permission.findOrFail(params.id)
 
-    await permission.delete()
+      await permission.delete()
+    } catch (err) {
+      return response.status(err.status).send({
+        error: { message: 'Algo deu errado!' }
+      })
+    }
   }
 }
 

@@ -34,6 +34,10 @@ Route.group(() => {
       ]
     ]))
 
+  // Permissões e funções
   Route.resource('permissions', 'PermissionController')
+    .apiOnly()
+
+  Route.resource('roles', 'RoleController')
     .apiOnly()
 }).middleware(['auth'])
