@@ -33,4 +33,7 @@ Route.group(() => {
         ['project.store'], ['Task']
       ]
     ]))
+
+  Route.resource('permissions', 'PermissionController')
+    .apiOnly()
 }).middleware(['auth'])

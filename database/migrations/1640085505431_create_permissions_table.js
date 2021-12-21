@@ -1,5 +1,8 @@
 'use strict'
 
+// adonis acl:setup
+// adonis migration:run
+
 const Schema = use('Schema')
 
 class PermissionsTableSchema extends Schema {
